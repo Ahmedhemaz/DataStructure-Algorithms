@@ -53,6 +53,12 @@ ___
                            /  \     /  \   /  \     /  \
                           1    3   5    7 9   11   13   15
 
+# Important note:
+- for every tree there are two important nodes 
+
+  1. In order successor "Largest thing smaller than the root" -> 7
+  2. In order predessor "smallest thing larger than the root" -> 9
+  
 ## Post order traversal
 ___
 1. visit left
