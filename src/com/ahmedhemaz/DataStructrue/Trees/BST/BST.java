@@ -24,6 +24,7 @@ public class BST<T extends Comparable<T>> {
     public void add(T data) {
          if (data == null) throw new IllegalArgumentException();
          this.root = this.add(data, this.root);
+         this.size++;
     }
 
     public void remove(T data) {
@@ -169,7 +170,7 @@ public class BST<T extends Comparable<T>> {
     private void postOrderTraversal(BinaryTreeNode<T> node) {
         if (node == null) return;
         postOrderTraversal(node.left);
-        preOrderTraversal(node.right);
+        postOrderTraversal(node.right);
         System.out.println(node.data);
     }
 
@@ -186,7 +187,7 @@ public class BST<T extends Comparable<T>> {
         integerBST.add(70);
 //        integerBST.preOrderTraversal();
 //        integerBST.inOrderTraversal();
-//        integerBST.postOrderTraversal();
+        integerBST.postOrderTraversal();
 //        System.out.println(integerBST.getSuccessor());
 //        System.out.println(integerBST.getPredecessor());
     }
