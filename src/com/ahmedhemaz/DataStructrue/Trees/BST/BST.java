@@ -23,17 +23,33 @@ public class BST<T extends Comparable<T>> {
     // to add data to our BST
     public void add(T data) {
          if (data == null) throw new IllegalArgumentException();
-         if (this.root == null) {
-             this.root = new BinaryTreeNode<>(data);
-         }else{
-             this.add(data, this.root);
-         }
-         this.size++;
+         this.root = this.add(data, this.root);
+    }
+
+    public void remove(T data) {
+        root = remove(data, this.root);
+        this.size--;
     }
 
     public boolean contains(T data) {
         if (data == null) throw new IllegalArgumentException();
         return contains(data, this.root);
+    }
+
+    public Integer size() {
+        return this.size;
+    }
+
+    public void preOrderTraversal() {
+        this.preOrderTraversal(this.root);
+    }
+
+    public void inOrderTraversal() {
+        this.inOrderTraversal(this.root);
+    }
+
+    public void postOrderTraversal() {
+        this.postOrderTraversal(this.root);
     }
 
     public T getSuccessor() {
@@ -44,34 +60,16 @@ public class BST<T extends Comparable<T>> {
         return  this.getPredecessor(root).data;
     }
 
-    public Integer size() {
-        return this.size;
-    }
-
-    public void remove(T data) {
-        root = remove(data, this.root);
-    }
-
-
-    private void add(T data, BinaryTreeNode<T> node) {
+    private BinaryTreeNode<T> add(T data, BinaryTreeNode<T> node) {
         // if data bigger or equal to our node data then go right
+        if (node == null) return  new BinaryTreeNode<>(data);
         if (data.compareTo(node.data) >= 0) {
-            if (node.right == null){
-                node.right = new BinaryTreeNode<>(data);
-                return;
-            }
-            add(data, node.right);
+            node.right = add(data, node.right);
         }
-        // if data less than out node data then go left
-        // we can neglect this if condition as we covered bigger or equal with the last if
-        // we leave it here for demonstration purposes
         if (data.compareTo(node.data) < 0) {
-            if (node.left == null) {
-                node.left = new BinaryTreeNode<>(data);
-                return;
-            }
-            add(data, node.left);
+            node.left = add(data, node.left);
         }
+        return node;
     }
 
     private boolean contains(T data, BinaryTreeNode<T> node) {
@@ -133,6 +131,7 @@ public class BST<T extends Comparable<T>> {
     private boolean isLeafNode(BinaryTreeNode<T> node) {
         return node.left == null && node.right == null;
     }
+
     private boolean isNodeWithOneChild(BinaryTreeNode<T> node) {
         return node.right != null || node.left != null;
     }
@@ -153,18 +152,41 @@ public class BST<T extends Comparable<T>> {
         return node;
     }
 
+    private void preOrderTraversal(BinaryTreeNode<T> node) {
+        if (node == null) return;
+        System.out.println(node.data);
+        preOrderTraversal(node.left);
+        preOrderTraversal(node.right);
+    }
+
+    private void inOrderTraversal(BinaryTreeNode<T> node) {
+        if (node == null) return;
+        inOrderTraversal(node.left);
+        System.out.println(node.data);
+        inOrderTraversal(node.right);
+    }
+
+    private void postOrderTraversal(BinaryTreeNode<T> node) {
+        if (node == null) return;
+        postOrderTraversal(node.left);
+        preOrderTraversal(node.right);
+        System.out.println(node.data);
+    }
+
 
 
     public static void main(String[] args) {
         BST<Integer> integerBST = new BST<>();
-        integerBST.add(10);
-        integerBST.add(15);
-        integerBST.add(6);
-        integerBST.add(4);
-        integerBST.add(8);
-        integerBST.add(12);
+        integerBST.add(40);
         integerBST.add(20);
-        integerBST.remove(6);
+        integerBST.add(10);
+        integerBST.add(30);
+        integerBST.add(60);
+        integerBST.add(50);
+        integerBST.add(70);
+//        integerBST.preOrderTraversal();
+//        integerBST.inOrderTraversal();
+//        integerBST.postOrderTraversal();
 //        System.out.println(integerBST.getSuccessor());
 //        System.out.println(integerBST.getPredecessor());
     }
