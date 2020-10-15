@@ -61,6 +61,21 @@ public class BST<T extends Comparable<T>> {
         return  this.getPredecessor(root).data;
     }
 
+    public T getMax() {
+        BinaryTreeNode<T> max = this.root;
+        while (max.right != null){
+            max = max.right;
+        }
+        return max.data;
+    }
+    public T getMin() {
+        BinaryTreeNode<T> max = this.root;
+        while (max.left != null){
+            max = max.left;
+        }
+        return max.data;
+    }
+
     private BinaryTreeNode<T> add(T data, BinaryTreeNode<T> node) {
         // if data bigger or equal to our node data then go right
         if (node == null) return  new BinaryTreeNode<>(data);
@@ -185,9 +200,10 @@ public class BST<T extends Comparable<T>> {
         integerBST.add(60);
         integerBST.add(50);
         integerBST.add(70);
+        System.out.println(integerBST.getMin());
 //        integerBST.preOrderTraversal();
 //        integerBST.inOrderTraversal();
-        integerBST.postOrderTraversal();
+//        integerBST.postOrderTraversal();
 //        System.out.println(integerBST.getSuccessor());
 //        System.out.println(integerBST.getPredecessor());
     }
