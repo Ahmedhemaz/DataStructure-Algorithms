@@ -13,9 +13,11 @@ public class BST<T extends Comparable<T>> {
     class BinaryTreeNode<T> {
          T data;
          BinaryTreeNode<T> left, right;
+         Integer height;
         public BinaryTreeNode(T data){
             this.data = data;
             this.left = this.right = null;
+            this.height = 0;
         }
     }
 
@@ -76,6 +78,36 @@ public class BST<T extends Comparable<T>> {
         return max.data;
     }
 
+    public Integer getHeightOf(T data) {
+        return this.getMaxDepth(this.getNode(data, this.root));
+    }
+
+    private Integer getMaxDepth(BinaryTreeNode<T> node) {
+        if (node == null) return -1;
+        /* compute the depth of each subtree */
+        Integer maxLeftDepth = this.getMaxDepth(node.left);
+        Integer maxRightDepth = this.getMaxDepth(node.right);
+
+        /* use the larger one */
+        return Math.max(maxLeftDepth, maxRightDepth) + 1;
+    }
+
+    private BinaryTreeNode<T> getNode(T data, BinaryTreeNode<T> node) {
+        if (!this.contains(data)) throw new IllegalArgumentException("Element does not exist");
+        if (data.compareTo(node.data) > 0) {
+            return this.getNode(data, node.right);
+        }
+        if (data.compareTo(node.data) < 0) {
+            return this.getNode(data, node.left);
+        }
+        return node;
+    }
+
+    private Integer getNodeHeight(BinaryTreeNode<T> node) {
+        if (node == null) return 0;
+        return node.height;
+    }
+
     private BinaryTreeNode<T> add(T data, BinaryTreeNode<T> node) {
         // if data bigger or equal to our node data then go right
         if (node == null) return  new BinaryTreeNode<>(data);
@@ -85,6 +117,7 @@ public class BST<T extends Comparable<T>> {
         if (data.compareTo(node.data) < 0) {
             node.left = add(data, node.left);
         }
+        node.height = 1 + this.getNodeHeight(node.left) + this.getNodeHeight(node.right);
         return node;
     }
 
@@ -107,6 +140,7 @@ public class BST<T extends Comparable<T>> {
 
     private BinaryTreeNode<T> remove(T data, BinaryTreeNode<T> node) {
 
+        if (!this.contains(data)) throw new IllegalArgumentException("Element does not exist");
         // if node is null then the tree is empty or there is no need to travers more
         if (node == null) return null;
 
@@ -141,6 +175,7 @@ public class BST<T extends Comparable<T>> {
             // as it would be with the same data as our node
             node.left = remove(node.data, node.left);
         }
+        node.height = 1 + this.getNodeHeight(node.left) + this.getNodeHeight(node.right);
         return node;
     }
 
@@ -200,7 +235,7 @@ public class BST<T extends Comparable<T>> {
         integerBST.add(60);
         integerBST.add(50);
         integerBST.add(70);
-        System.out.println(integerBST.getMin());
+        System.out.println(integerBST.getHeightOf(20));
 //        integerBST.preOrderTraversal();
 //        integerBST.inOrderTraversal();
 //        integerBST.postOrderTraversal();
