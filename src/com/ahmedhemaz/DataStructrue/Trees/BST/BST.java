@@ -1,5 +1,8 @@
 package com.ahmedhemaz.DataStructrue.Trees.BST;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class BST<T extends Comparable<T>> {
 
     private BinaryTreeNode<T> root;
@@ -13,11 +16,11 @@ public class BST<T extends Comparable<T>> {
     class BinaryTreeNode<T> {
          T data;
          BinaryTreeNode<T> left, right;
-         Integer height;
+         Integer count;
         public BinaryTreeNode(T data){
             this.data = data;
             this.left = this.right = null;
-            this.height = 0;
+            this.count = 0;
         }
     }
 
@@ -103,9 +106,9 @@ public class BST<T extends Comparable<T>> {
         return node;
     }
 
-    private Integer getNodeHeight(BinaryTreeNode<T> node) {
+    private Integer getSubTreeCountOf(BinaryTreeNode<T> node) {
         if (node == null) return 0;
-        return node.height;
+        return node.count;
     }
 
     private BinaryTreeNode<T> add(T data, BinaryTreeNode<T> node) {
@@ -117,7 +120,7 @@ public class BST<T extends Comparable<T>> {
         if (data.compareTo(node.data) < 0) {
             node.left = add(data, node.left);
         }
-        node.height = 1 + this.getNodeHeight(node.left) + this.getNodeHeight(node.right);
+        node.count = 1 + this.getSubTreeCountOf(node.left) + this.getSubTreeCountOf(node.right);
         return node;
     }
 
@@ -175,7 +178,7 @@ public class BST<T extends Comparable<T>> {
             // as it would be with the same data as our node
             node.left = remove(node.data, node.left);
         }
-        node.height = 1 + this.getNodeHeight(node.left) + this.getNodeHeight(node.right);
+        node.count = 1 + this.getSubTreeCountOf(node.left) + this.getSubTreeCountOf(node.right);
         return node;
     }
 
@@ -224,6 +227,20 @@ public class BST<T extends Comparable<T>> {
         System.out.println(node.data);
     }
 
+    public void BFSTraversal() {
+        Queue<BinaryTreeNode<T>> queue = new ArrayDeque<>();
+        queue.add(this.root);
+        this.BFSTraversal(this.root, queue);
+    }
+
+    private BinaryTreeNode<T> BFSTraversal(BinaryTreeNode<T> node, Queue<BinaryTreeNode<T>> queue) {
+        if (node == null) return null;
+        if (node.left != null) queue.add(node.left);
+        if (node.right != null) queue.add(node.right);
+        System.out.println(queue.remove().data);
+        return this.BFSTraversal(queue.peek(), queue);
+    }
+
 
 
     public static void main(String[] args) {
@@ -235,7 +252,8 @@ public class BST<T extends Comparable<T>> {
         integerBST.add(60);
         integerBST.add(50);
         integerBST.add(70);
-        System.out.println(integerBST.getHeightOf(20));
+//        System.out.println(integerBST.getHeightOf(20));
+        integerBST.BFSTraversal();
 //        integerBST.preOrderTraversal();
 //        integerBST.inOrderTraversal();
 //        integerBST.postOrderTraversal();
