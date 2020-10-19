@@ -4,6 +4,10 @@
 
 - Path: Sequence of vertices connected by edges.
 - Cycle: Path whose first and last vertices are the same.
+- dense: a graph with many edges is dense 
+    - a graph is dense in which |e| = O(|v^2|)
+- sparse: a graph with relatively few edges is sparse
+    - a graph is sparse in which |e| = O(|v|)
 
     **Two vertices are connected if there is a path between them.**
 ___
@@ -25,16 +29,44 @@ ___
 
  ### **Cost**:
  - #### **Time Complexity**: 
-    - (O) |E| for simple Graph with no parallel edges
-    - (O) |v(v-1)| for directed with multi edges 
-    - (O) |v(v-1) / 2| for undirected with multi edges 
+    - O(|E|) for simple Graph with no parallel edges
+    - O(|v(v-1)|) for directed with multi edges 
+    - O(|v(v-1) / 2|) for undirected with multi edges 
+    - O(|E|) for add edges if we want no repetition , O(1) with Repetition
  - #### **Space complexity**:
-    - ##### **Undirected**: 
-        - (O) |v| for verticesList
-        - (O) |e| for edgesList or (O) |v(v-1) / 2| for multi edges
+    - ##### **Undirected**:
+        - O(|v|) for verticesList
+        - O(|e|) for edgesList or  O(|v(v-1) / 2|) for multi edges
     - ##### **Directed**:
-        - (O) |v| for verticesList
-        - (O) |e| for edgesList or (O) |v(v-1)| for multi edges
+        - O(|v|) for verticesList
+        - O(|e|) for edgesList or O(|v(v-1)|) for multi edges
 
 **Note: Edge List is not efficent to represent graph**
+___
+
+## Adjacency Matrix: 
+- create verticesList 
+- create a (boolean/integer) matrix of size "verticesList"
+- as we want to connect two vertices
+
+  1- we look for the index of two vertices in verticesList ( i, j )
+
+  2- we mark them as connected by making 
+
+        matrix[i][j] = matrix[j][i] = true
+- **Adjacency Matrix implementation [AdjacencyMatrix]()**
+### **Cost**:
+ - #### **Time Complexity**: 
+    - finding adjacent nodes O(|V|) 
+    - finding if two nodes are connected 
+      - if we have the indices O(1)
+      - if we have the names/values we need to search for their indices with O(|V|)
+      then we check the adjacency matrix in constant time O(1)
+      so the total time complexity would be O(|V|)
+
+      **Note**: "**we can improve linear search time by using HashMap<Name/value, index> instead of List of vertices to get the indices in constant time**"
+ - #### **Space complexity**:
+    - O(V^2) space as a trade of time complexity
+
+**Note: Adjacency Matrix is good for dense graphs not sparse graphs as we will use alot of wasted extra space**
 ___

@@ -1,0 +1,84 @@
+package com.ahmedhemaz.DataStructrue.Graphs.Undirected;
+
+public class AdjacencyMatrix<T> {
+    private T[] verticesList;
+    private boolean[][] adjacencyMatrix;
+
+    public AdjacencyMatrix(int size, T [] verticesList) {
+        this.verticesList =(T[]) new Object[size];
+        this.adjacencyMatrix =  new boolean[size][size];
+        this.fillVerticesList(verticesList);
+    }
+
+    public void addEdge(T from, T to) {
+        int fromIndex = this.indexOf(from);
+        int toIndex = this.indexOf(to);
+        if (fromIndex == -1 || toIndex == -1) throw new IllegalArgumentException("Vertex Not Exists");
+        this.adjacencyMatrix[fromIndex][toIndex] = true;
+        this.adjacencyMatrix[toIndex][fromIndex] = true;
+    }
+
+    public void fillVerticesList(T [] arr) {
+        System.arraycopy(arr, 0, this.verticesList, 0, arr.length);
+    }
+
+    private int indexOf(T vertex) {
+        for (int i = 0; i < this.verticesList.length; i++) {
+            if (vertex.equals(this.verticesList[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean[][] getAdjacencyMatrix() {
+        return this.cloneOf(this.adjacencyMatrix);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("   0------1------2------3------4------5------6------7");
+        stringBuilder.append('\n');
+        for (int i = 0; i < this.adjacencyMatrix.length; i++) {
+            stringBuilder.append(i).append("|");
+            for (int j = 0; j < this.adjacencyMatrix.length; j++) {
+                stringBuilder.append(this.adjacencyMatrix[i][j]);
+                if (this.adjacencyMatrix[i][j]) {
+                    stringBuilder.append("  |");
+                }else {
+                    stringBuilder.append(" |");
+                }
+            }
+            stringBuilder.append('\n');
+        }
+        return stringBuilder.toString();
+    }
+
+    private boolean[][] cloneOf(boolean[][] matrix) {
+        boolean[][] matrixCopy = new boolean [matrix.length][];
+        for (int i = 0; i < matrix.length; i++) {
+            boolean[] aMatrix = matrix[i];
+            int aLength = aMatrix.length;
+            matrixCopy[i] = new boolean [aLength];
+            System.arraycopy(aMatrix, 0, matrixCopy[i], 0, aLength);
+        }
+        return matrixCopy;
+    }
+
+    public static void main(String[] args) {
+        Character[] characters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
+        AdjacencyMatrix<Character> characterAdjacencyMatrix = new AdjacencyMatrix<>(8, characters);
+        characterAdjacencyMatrix.addEdge('A','B');
+        characterAdjacencyMatrix.addEdge('A','C');
+        characterAdjacencyMatrix.addEdge('A','D');
+        characterAdjacencyMatrix.addEdge('B','F');
+        characterAdjacencyMatrix.addEdge('B','E');
+        characterAdjacencyMatrix.addEdge('C','G');
+        characterAdjacencyMatrix.addEdge('G','H');
+        characterAdjacencyMatrix.addEdge('D','H');
+        characterAdjacencyMatrix.addEdge('E','H');
+        characterAdjacencyMatrix.addEdge('F','H');
+        System.out.println(characterAdjacencyMatrix.toString());
+    }
+}
