@@ -54,7 +54,7 @@ ___
   2- we mark them as connected by making 
 
         matrix[i][j] = matrix[j][i] = true
-- **Adjacency Matrix implementation [AdjacencyMatrix]()**
+- **Adjacency Matrix implementation [AdjacencyMatrix](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/UndirectedEdgeList.java)**
 ### **Cost**:
  - #### **Time Complexity**: 
     - finding adjacent nodes O(|V|) 
