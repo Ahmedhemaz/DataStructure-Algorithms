@@ -66,7 +66,45 @@ ___
 
       **Note**: "**we can improve linear search time by using HashMap<Name/value, index> instead of List of vertices to get the indices in constant time**"
  - #### **Space complexity**:
-    - O(V^2) space as a trade of time complexity
+    - O(V^2) space as a trade off to improve time complexity
 
 **Note: Adjacency Matrix is good for dense graphs not sparse graphs as we will use alot of wasted extra space**
+___
+## Adjacency List: 
+- to solve unused space in Adjacency matrix as most of graphs are sparse graphs
+we can store edges only 
+- we can implement Adjacency List using List of vertices pointing to another (Array, LinkedList)
+  - **verticesList with edges Array** 
+       
+        [0] -> [1,2]
+        [1] -> [2,3]
+        [2] -> [0]
+        [3] -> [1,2,0]
+    as we adding new edges exceeding the size of edges array we will create new array with new size, then copy all old elements to the new array, then add the new edge. However we can use linkedList to improve addtion and deletion performance 
+  - **verticesList with edges LinkedList**
+
+        [0] -> 1-> 2
+        [1] -> 2-> 3
+        [2] -> 0
+        [3] -> 1-> 2-> 0
+  - **vertices Hashmap with edges LinkedList**
+    - as using verticesList if we don't have the index we will search for the value of vertex (linear search) then we access it's edges as improvement we can use Hashmap for vertices so we can get it in constant time O(1)
+
+            ['A'] -> 'B'-> 'c'
+            ['B'] -> 'C'-> 'D'
+            ['C'] -> 'A'
+            ['D'] -> 'B'-> 'C'-> 'A'
+
+- **Adjacency List Hashmap/LinkedList implementation [AdjacencyList](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/AdjacencyList.java)**
+### **Cost**:
+ - #### **Time Complexity**: 
+    - finding adjacent nodes O(|V|) 
+    - finding if two nodes are connected O(|V|)
+    - add Edge O(1)
+    - remove Edge O(|V|) 
+        - iterate over adjacent till we find the node we want to remove from the linkedList then remove the vertex from edge Linkedlist
+ - #### **Space complexity**:
+    - O(|V| + |E|)
+
+**Note: Adjacency List is used for sparse graphs**
 ___
