@@ -1,6 +1,6 @@
+![Made with java](assets/made-with-java.svg)
 # Datastructrue and Algorithms 
 - All Data structures And Algorithms Implementations i Know so far with java implementation as a reference for coding interview preparation
-![Made with java]()
 
 # Motivation
 - as we are preparing for technical interviews we need a reference for the basic datastructrue and algorithms we might need 
