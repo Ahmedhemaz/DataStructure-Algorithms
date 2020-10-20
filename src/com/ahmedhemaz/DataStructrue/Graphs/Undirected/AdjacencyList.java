@@ -42,6 +42,10 @@ public class AdjacencyList <T> {
         return stringBuilder.toString();
     }
 
+    public HashMap<T, LinkedList<T>> getVerticesMap() {
+        return verticesMap;
+    }
+
     public static void main(String[] args) {
         Character[] characters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
         AdjacencyList<Character> characterAdjacencyList = new AdjacencyList<>(characters);
