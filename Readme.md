@@ -17,7 +17,11 @@
   3. Space complexity 
 - [Datastructrues](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/DataStructrue):
     - [Trees](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/DataStructrue/Trees)
+      - [BST](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Trees/BST/BST.java)
     - [Graphs](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/DataStructrue/Graphs)
+      - [UndirectedEdgeList](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/UndirectedEdgeList.java)
+      - [AdjacencyMatrix](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/AdjacencyMatrix.java)
+      - [AdjacencyList](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/AdjacencyList.java)
 # Algorithms:
 - [Algorithms](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms):
     - [Graphs](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs)
