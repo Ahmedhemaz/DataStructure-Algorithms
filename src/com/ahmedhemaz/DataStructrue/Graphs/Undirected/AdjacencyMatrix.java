@@ -22,13 +22,17 @@ public class AdjacencyMatrix<T> {
         System.arraycopy(arr, 0, this.verticesList, 0, arr.length);
     }
 
-    private int indexOf(T vertex) {
+    public int indexOf(T vertex) {
         for (int i = 0; i < this.verticesList.length; i++) {
             if (vertex.equals(this.verticesList[i])) {
                 return i;
             }
         }
         return -1;
+    }
+
+    public T getVertexOfIndex(int index) {
+        return this.verticesList[index];
     }
 
     public boolean[][] getAdjacencyMatrix() {
