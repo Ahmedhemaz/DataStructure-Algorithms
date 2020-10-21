@@ -3,7 +3,7 @@ package com.ahmedhemaz.DataStructrue.Graphs.Undirected;
 import java.util.*;
 
 public class AdjacencyList <T> {
-    private HashMap<T, LinkedList<T>> verticesMap;
+    private final HashMap<T, LinkedList<T>> verticesMap;
 
     public AdjacencyList() {
         this.verticesMap = new HashMap<>();

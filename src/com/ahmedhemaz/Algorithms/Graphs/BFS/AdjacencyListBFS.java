@@ -6,10 +6,10 @@ import java.util.*;
 
 public class AdjacencyListBFS<T> {
 
-    private AdjacencyList<T> graph;
-    private Hashtable<T, Integer> visitedVerticesLevels;
-    private Queue<T> verticesToVisit;
-    private Hashtable<T, T> parent;
+    private final AdjacencyList<T> graph;
+    private final Hashtable<T, Integer> visitedVerticesLevels;
+    private final Queue<T> verticesToVisit;
+    private final Hashtable<T, T> parent;
 
     public AdjacencyListBFS(AdjacencyList<T> graph) {
         this.graph = graph;
