@@ -11,24 +11,24 @@ public class AdjacencyListDFSIterative<T> {
     private final AdjacencyList<T> graph;
     private final Hashtable<T,T> parentOfVertex;
     private final HashSet<T> visitedVertices;
-    private final Stack<T> nextVertexToVisit;
+    private final Stack<T> nextVerticesToVisit;
 
     public AdjacencyListDFSIterative(AdjacencyList<T> graph) {
         this.graph = graph;
         this.parentOfVertex = new Hashtable<>();
         this.visitedVertices = new HashSet<>();
-        this.nextVertexToVisit = new Stack<>();
+        this.nextVerticesToVisit = new Stack<>();
     }
 
     public void dfs(T vertex) {
-        this.nextVertexToVisit.add(vertex);
-        while (!this.nextVertexToVisit.isEmpty()) {
-            T currentVertex = this.nextVertexToVisit.pop();
+        this.nextVerticesToVisit.add(vertex);
+        while (!this.nextVerticesToVisit.isEmpty()) {
+            T currentVertex = this.nextVerticesToVisit.pop();
             this.visitedVertices.add(currentVertex);
             for (T child :
                     this.graph.getVerticesMap().get(currentVertex)) {
                 if (!this.visitedVertices.contains(child)) {
-                    this.nextVertexToVisit.add(child);
+                    this.nextVerticesToVisit.add(child);
                     this.parentOfVertex.put(child, currentVertex);
                 }
             }
@@ -36,15 +36,15 @@ public class AdjacencyListDFSIterative<T> {
     }
 
     public boolean dfs(T from, T to) {
-        this.nextVertexToVisit.add(from);
-        while (!this.nextVertexToVisit.isEmpty()) {
-            T currentVertex = this.nextVertexToVisit.pop();
+        this.nextVerticesToVisit.add(from);
+        while (!this.nextVerticesToVisit.isEmpty()) {
+            T currentVertex = this.nextVerticesToVisit.pop();
             if (currentVertex == to) return true;
             this.visitedVertices.add(currentVertex);
             for (T child :
                     this.graph.getVerticesMap().get(currentVertex)) {
                 if (!this.visitedVertices.contains(child)) {
-                    this.nextVertexToVisit.add(child);
+                    this.nextVerticesToVisit.add(child);
                     this.parentOfVertex.put(child, currentVertex);
                 }
             }

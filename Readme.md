@@ -25,4 +25,9 @@
 # Algorithms:
 - [Algorithms](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms):
     - [Graphs](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs)
-      - [AdjacencyList BFS](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/BFS/AdjacencyListBFS.java)
+      - [BFS](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs/BFS)
+        - [AdjacencyList BFS](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/BFS/AdjacencyListBFS.java)
+      - [DFS](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs/DFS)
+        - [AdjacencyList DFS Recursive](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/DFS/AdjacencyListDFS.java)
+        - [AdjacencyList Iterative with stack](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/DFS/AdjacencyListDFSIterative.java)
+      
