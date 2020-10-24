@@ -8,10 +8,10 @@ import java.util.Map;
 import java.util.Queue;
 
 public class AdjacencyMatrixBFS<T> {
-    private AdjacencyMatrix<T> graph;
-    private Queue<T> verticesToVisit;
-    private Hashtable<T, Integer> verticesLevels;
-    private Hashtable<T,T> parentOf;
+    private final AdjacencyMatrix<T> graph;
+    private final Queue<T> verticesToVisit;
+    private final Hashtable<T, Integer> verticesLevels;
+    private final Hashtable<T,T> parentOf;
 
     public AdjacencyMatrixBFS(AdjacencyMatrix<T> graph) {
         this.graph = graph;

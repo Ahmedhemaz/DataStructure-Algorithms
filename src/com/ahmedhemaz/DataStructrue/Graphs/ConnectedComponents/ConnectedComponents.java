@@ -1,62 +1,52 @@
-package com.ahmedhemaz.Algorithms.Graphs.DFS;
+package com.ahmedhemaz.DataStructrue.Graphs.ConnectedComponents;
 
 import com.ahmedhemaz.DataStructrue.Graphs.Undirected.AdjacencyList;
+import java.util.*;
 
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Map;
-
-public class AdjacencyListDFS<T> {
-    private final AdjacencyList<T> graph;
-    private final Hashtable<T,T> parentOfVertex;
+public class ConnectedComponents<T> {
+    private final HashMap<T,Integer> verticesComponentId;
     private final HashSet<T> visitedVertices;
-
-    public AdjacencyListDFS(AdjacencyList<T> graph) {
+    private final AdjacencyList<T> graph;
+    private int counter;
+    public ConnectedComponents(AdjacencyList<T> graph) {
         this.graph = graph;
-        this.parentOfVertex = new Hashtable<>();
+        this.verticesComponentId = new HashMap<>();
         this.visitedVertices = new HashSet<>();
+        this.counter = 0;
+        this.connect();
     }
 
-    public void dfs(T vertex) {
-        if (this.visitedVertices.contains(vertex)) return;
-        this.visitedVertices.add(vertex);
-        for (T nextVertex : this.graph.getVerticesMap().get(vertex)) {
-            if (!this.visitedVertices.contains(nextVertex)) {
-                this.parentOfVertex.put(nextVertex, vertex);
-            }
-            this.dfs(nextVertex);
-        }
-    }
-
-    public boolean dfs(T from, T to) {
-        if (this.visitedVertices.contains(from)) return false;
-        if (from.equals(to)) return true;
-        this.visitedVertices.add(from);
-        for (T child :
-                this.graph.getVerticesMap().get(from)) {
-            if (this.dfs(child,to)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void printParentVertices() {
-        for (Map.Entry<T, T> entry :
-                this.parentOfVertex.entrySet()) {
+    public void printConnectedComponents() {
+        for (Map.Entry<T, Integer> entry :
+                this.verticesComponentId.entrySet()) {
             System.out.println(entry.getKey() + ":" + entry.getValue());
         }
     }
 
-    public HashSet<T> getVisitedVertices() {
-        return visitedVertices;
+    private void connect() {
+        for (Map.Entry<T, LinkedList<T>> vertex :
+                this.graph.getVerticesMap().entrySet()) {
+            if (!this.visitedVertices.contains(vertex.getKey())){
+                this.dfs(vertex.getKey());
+                this.counter++;
+            }
+        }
+    }
+
+    private void dfs(T vertex) {
+        if (this.visitedVertices.contains(vertex)) return;
+        this.visitedVertices.add(vertex);
+        this.verticesComponentId.put(vertex, counter);
+        for(T nextVertex: this.graph.getVerticesMap().get(vertex)) {
+            if (!this.visitedVertices.contains(nextVertex)){
+                this.dfs(nextVertex);
+            }
+        }
     }
 
     public static void main(String[] args) {
-        AdjacencyListDFS<Integer> integerAdjacencyListDFS = new AdjacencyListDFS<>(constructIntegerGraph());
-        integerAdjacencyListDFS.dfs(0);
-        integerAdjacencyListDFS.printParentVertices();
-//        System.out.println(integerAdjacencyListDFS.dfs(0,5));
+        ConnectedComponents<Integer> connectedComponents = new ConnectedComponents<>(constructIntegerGraph());
+        connectedComponents.printConnectedComponents();
     }
 
 
@@ -79,18 +69,21 @@ public class AdjacencyListDFS<T> {
         integerAdjacencyList.addEdge(5, 4);
         integerAdjacencyList.addEdge(3, 5);
         integerAdjacencyList.addEdge(5, 3);
+
         integerAdjacencyList.addEdge(7, 8);
         integerAdjacencyList.addEdge(8, 7);
+
         integerAdjacencyList.addEdge(9, 10);
+        integerAdjacencyList.addEdge(10, 9);
         integerAdjacencyList.addEdge(9, 11);
         integerAdjacencyList.addEdge(11, 9);
         integerAdjacencyList.addEdge(9, 12);
         integerAdjacencyList.addEdge(12, 9);
-        integerAdjacencyList.addEdge(10, 9);
         integerAdjacencyList.addEdge(11, 12);
         integerAdjacencyList.addEdge(12, 11);
 
 
         return integerAdjacencyList;
     }
+
 }
