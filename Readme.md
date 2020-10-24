@@ -22,7 +22,7 @@
       - [EdgeList](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/UndirectedEdgeList.java)
       - [AdjacencyMatrix](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/AdjacencyMatrix.java)
       - [AdjacencyList](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/AdjacencyList.java)
-      - [ConnectedComponents](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/Undirected/ConnectedComponents.java)
+      - [ConnectedComponents](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/ConnectedComponents/ConnectedComponents.java)
 # Algorithms:
 - [Algorithms](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms):
     - [Graphs](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs)
