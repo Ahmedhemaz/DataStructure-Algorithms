@@ -33,4 +33,5 @@
         - [AdjacencyList DFS Recursive](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/DFS/AdjacencyListDFS.java)
         - [AdjacencyList Iterative with stack](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/DFS/AdjacencyListDFSIterative.java)
       - [Bipartite](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/Bipartite/BipartiteChecker.java)
+      - [CycleDetector](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/CycleDetector/CycleDetector.java)
       
