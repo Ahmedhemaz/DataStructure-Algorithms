@@ -1,15 +1,18 @@
-package com.ahmedhemaz.DataStructrue.Graphs.Undirected;
+package com.ahmedhemaz.DataStructrue.Graphs.directed;
 
-import java.util.*;
 
-public class AdjacencyList <T> {
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
+public class DirectedAdjacencyList<T> {
     private final HashMap<T, LinkedList<T>> verticesMap;
 
-    public AdjacencyList() {
+    public DirectedAdjacencyList() {
         this.verticesMap = new HashMap<>();
     }
 
-    public AdjacencyList(T[] vertices) {
+    public DirectedAdjacencyList(T[] vertices) {
         this.verticesMap = new HashMap<>();
         this.fillVerticesMap(vertices);
     }
@@ -22,20 +25,17 @@ public class AdjacencyList <T> {
 
     public void addEdge(T from, T to) {
         this.verticesMap.get(from).add(to);
-        this.verticesMap.get(to).add(from);
     }
 
     public void removeEdge(T from, T to) {
-
         this.verticesMap.get(from).remove(to);
-        this.verticesMap.get(to).remove(from);
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Map.Entry<T, LinkedList<T>> entry:
-             this.verticesMap.entrySet()) {
+                this.verticesMap.entrySet()) {
             stringBuilder.append(entry.getKey()).append("->");
             for (T t : entry.getValue()) {
                 stringBuilder.append(t).append("->");
@@ -51,18 +51,27 @@ public class AdjacencyList <T> {
 
     public static void main(String[] args) {
         Character[] characters = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
-        AdjacencyList<Character> characterAdjacencyList = new AdjacencyList<>(characters);
+        DirectedAdjacencyList<Character> characterAdjacencyList = new DirectedAdjacencyList<>(characters);
         characterAdjacencyList.addEdge('A','B');
         characterAdjacencyList.addEdge('A','C');
         characterAdjacencyList.addEdge('A','D');
+        characterAdjacencyList.addEdge('B','A');
         characterAdjacencyList.addEdge('B','E');
         characterAdjacencyList.addEdge('B','F');
+        characterAdjacencyList.addEdge('C','A');
         characterAdjacencyList.addEdge('C','G');
         characterAdjacencyList.addEdge('G','C');
+        characterAdjacencyList.addEdge('G','H');
+        characterAdjacencyList.addEdge('D','A');
         characterAdjacencyList.addEdge('D','H');
+        characterAdjacencyList.addEdge('E','B');
+        characterAdjacencyList.addEdge('E','H');
+        characterAdjacencyList.addEdge('F','B');
         characterAdjacencyList.addEdge('F','H');
         characterAdjacencyList.addEdge('H','G');
+        characterAdjacencyList.addEdge('H','D');
         characterAdjacencyList.addEdge('H','E');
+        characterAdjacencyList.addEdge('H','F');
         System.out.println(characterAdjacencyList.toString());
         System.out.println("--------------------------------------");
         characterAdjacencyList.removeEdge('A', 'D');
