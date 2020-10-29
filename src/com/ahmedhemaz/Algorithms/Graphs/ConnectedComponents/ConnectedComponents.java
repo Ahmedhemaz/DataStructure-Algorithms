@@ -1,4 +1,4 @@
-package com.ahmedhemaz.DataStructrue.Graphs.ConnectedComponents;
+package com.ahmedhemaz.Algorithms.Graphs.ConnectedComponents;
 
 import com.ahmedhemaz.DataStructrue.Graphs.Undirected.AdjacencyList;
 import java.util.*;
