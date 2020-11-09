@@ -27,11 +27,6 @@ public class WeightedGraph<T> {
         this.edgeList.add(edge);
         T from = edge.either();
         T to = edge.other(from);
-        // don't add self loop edge twice
-        if (this.verticesMap.get(from).equals(this.verticesMap.get(to))){
-            this.verticesMap.get(from).add(edge);
-            return;
-        }
         this.verticesMap.get(from).add(edge);
         this.verticesMap.get(to).add(edge);
     }
@@ -77,7 +72,6 @@ public class WeightedGraph<T> {
         characterWeightedGraph.addEdge(new Edge<>('A', 'B', 1.0));
         characterWeightedGraph.addEdge(new Edge<>('A', 'C', 1.0));
         characterWeightedGraph.addEdge(new Edge<>('A', 'D', 1.0));
-        characterWeightedGraph.addEdge(new Edge<>('A', 'A', 0.0));
         characterWeightedGraph.addEdge(new Edge<>('B', 'E', 1.0));
         characterWeightedGraph.addEdge(new Edge<>('B', 'F', 1.0));
         characterWeightedGraph.addEdge(new Edge<>('C', 'G', 1.0));
