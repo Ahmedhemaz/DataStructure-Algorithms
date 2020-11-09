@@ -4,11 +4,16 @@ import java.util.*;
 
 public class WeightedGraph<T> {
     private final HashMap<T, LinkedList<Edge<T>>> verticesMap;
+    private final List<Edge<T>> edgeList;
 
-    public WeightedGraph() {this.verticesMap = new HashMap<>();}
+    public WeightedGraph() {
+        this.verticesMap = new HashMap<>();
+        this.edgeList = new ArrayList<>();
+    }
 
     public WeightedGraph(List<T> vertices) {
         this.verticesMap = new HashMap<>();
+        this.edgeList = new ArrayList<>();
         this.initializeVerticesMap(vertices);
     }
 
@@ -19,6 +24,7 @@ public class WeightedGraph<T> {
     }
 
     public void addEdge(Edge<T> edge) {
+        this.edgeList.add(edge);
         T from = edge.either();
         T to = edge.other(from);
         // don't add self loop edge twice
@@ -39,6 +45,10 @@ public class WeightedGraph<T> {
 
     public HashMap<T, LinkedList<Edge<T>>> getVerticesMap() {
         return verticesMap;
+    }
+
+    public List<Edge<T>> getEdgeList() {
+        return edgeList;
     }
 
     @Override
