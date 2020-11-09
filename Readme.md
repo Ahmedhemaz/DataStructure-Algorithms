@@ -48,6 +48,7 @@
         - [Recursive](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/TopologicalSort/TopologicalSortRecursive.java)
       - [MinimumSpanningTree](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs/MinimumSpanningTree)
         - [Kruskal's Algorithm](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/MinimumSpanningTree/KruskalMST.java)
+        - [Prim's Algorithm](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/MinimumSpanningTree/PrimLazyMST.java)
         
 
       
