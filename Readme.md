@@ -16,6 +16,8 @@
   2. Time complexity in it's Readme file
   3. Space complexity 
 - [Datastructrues](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/DataStructrue):
+    - [UnionFind](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/DataStructrue/UnionFind)
+      - [WeightedQuickUnionFind](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/UnionFind/WeightedQuickUnionUF.java)
     - [Trees](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/DataStructrue/Trees)
       - [BST](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Trees/BST/BST.java)
     - [Graphs](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/DataStructrue/Graphs)
@@ -44,5 +46,8 @@
       - [TopologicalSort](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/TopologicalSort)
         - [Iterative](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/TopologicalSort/TopologicalSortIterative.java)
         - [Recursive](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/TopologicalSort/TopologicalSortRecursive.java)
+      - [MinimumSpanningTree](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs/MinimumSpanningTree)
+        - [Kruskal's Algorithm](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/MinimumSpanningTree/KruskalMST.java)
+        
 
       
