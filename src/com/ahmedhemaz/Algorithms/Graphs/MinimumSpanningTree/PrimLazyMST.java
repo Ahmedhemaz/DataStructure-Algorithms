@@ -1,7 +1,7 @@
 package com.ahmedhemaz.Algorithms.Graphs.MinimumSpanningTree;
 
-import com.ahmedhemaz.DataStructrue.Graphs.Weighted.Edge;
-import com.ahmedhemaz.DataStructrue.Graphs.Weighted.WeightedGraph;
+import com.ahmedhemaz.DataStructrue.Graphs.Undirected.Weighted.Edge;
+import com.ahmedhemaz.DataStructrue.Graphs.Undirected.Weighted.WeightedGraph;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package com.ahmedhemaz.DataStructrue.Graphs.Weighted;
+package com.ahmedhemaz.DataStructrue.Graphs.Undirected.Weighted;
 
 public class Edge<T> implements Comparable<Edge<T>> {
     private final Double weight;

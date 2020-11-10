@@ -1,4 +1,4 @@
-package com.ahmedhemaz.DataStructrue.Graphs.Weighted;
+package com.ahmedhemaz.DataStructrue.Graphs.Undirected.Weighted;
 
 import java.util.*;
 
