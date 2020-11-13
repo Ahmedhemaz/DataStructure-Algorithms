@@ -39,6 +39,10 @@ public class DirectedWeightedGraph<T> {
         this.verticesMap.get(from).remove(directedEdge);
     }
 
+    public LinkedList<DirectedEdge<T>> getAdj(T vertex) {
+        return this.verticesMap.get(vertex);
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();

@@ -53,6 +53,8 @@
       - [MinimumSpanningTree](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs/MinimumSpanningTree)
         - [Kruskal's Algorithm](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/MinimumSpanningTree/KruskalMST.java)
         - [Prim's Algorithm](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/MinimumSpanningTree/PrimLazyMST.java)
+      - [ShortestPath](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms/Graphs/ShortestPath)
+        - [Dijkstra](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/Algorithms/Graphs/ShortestPath/Dijkstra.java)
         
 
       
