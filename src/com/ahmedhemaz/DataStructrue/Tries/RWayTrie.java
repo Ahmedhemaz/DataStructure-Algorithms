@@ -1,5 +1,7 @@
 package com.ahmedhemaz.DataStructrue.Tries;
 
+import java.util.NoSuchElementException;
+
 public class RWayTrie<T> {
     private final static int R = 265;
     private Node root = new Node();
@@ -15,6 +17,10 @@ public class RWayTrie<T> {
 
     public boolean contains(String key) {
         return this.get(key) != null;
+    }
+
+    public void delete(String key) {
+        this.delete(root, key, 0);
     }
 
     public T get(String key) {
@@ -41,6 +47,21 @@ public class RWayTrie<T> {
         return this.get(x.next[c], key, d+1);
     }
 
+    private Node delete(Node x, String key, int d) {
+        if (x == null) return null;
+        if(d == key.length()) {
+            x.value = null;
+        }else {
+            char c = key.charAt(d);
+            x.next[c] = this.delete(x.next[c], key, d+1) ;
+        }
+        // remove subtrie rooted at x if it is completely empty
+        if (x.value != null) return x;
+        for (char c = 0; c < R; c++)
+            if (x.next[c] != null) return x;
+        return null;
+    }
+
     public static void main(String[] args) {
         RWayTrie<Boolean> trie = new RWayTrie<>();
         trie.put("ahmed", true);
@@ -48,7 +69,8 @@ public class RWayTrie<T> {
         trie.put("mohamed", true);
         trie.put("ibrahim", true);
         trie.put("ahm", true);
-        System.out.println(trie.get("ah"));
+        trie.delete("ahm");
+        System.out.println(trie.get("ahmed"));
     }
 
 
