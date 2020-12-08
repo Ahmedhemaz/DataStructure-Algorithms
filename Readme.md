@@ -35,7 +35,8 @@
         - [DirectedAdjacencyMatrix](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/directed/DirectedAdjacencyMatrix.java)
         - [DirectedAdjacencyList](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Graphs/directed/DirectedAdjacencyList.java)
       - [Tries](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/DataStructrue/Tries)
-        - [RWayTrie](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Tries/RWayTrie.java)
+        - [R-Way Trie](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Tries/RWayTrie.java)
+        - [Ternary Search Trie](https://github.com/Ahmedhemaz/DataStructure-Algorithms/blob/main/src/com/ahmedhemaz/DataStructrue/Tries/TST.java)
       
 # Algorithms:
 - [Algorithms](https://github.com/Ahmedhemaz/DataStructure-Algorithms/tree/main/src/com/ahmedhemaz/Algorithms):

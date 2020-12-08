@@ -1,7 +1,5 @@
 package com.ahmedhemaz.DataStructrue.Tries;
 
-import java.util.NoSuchElementException;
-
 public class RWayTrie<T> {
     private final static int R = 265;
     private Node root = new Node();
